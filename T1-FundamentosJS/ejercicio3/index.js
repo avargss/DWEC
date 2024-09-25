@@ -8,16 +8,24 @@ function promedio() {
 
 }
 
-if (promedio = 5) {
-    console.log(`Pass`);
-    
-} else if (promedio = 6) {
+if (promedio < 5) {
+    console.log(`No pass`);
+
+} else if (promedio = 5) {
     console.log(`Sufficient`);
-    
-} else if (promedio = 7) {
+
+} else if (promedio = 6) {
     console.log(`Good`);
-    
+
+} else if (promedio = 7) {5
+    console.log(`Good`);
+
 } else if (promedio > 7 && promedio < 10) {
     console.log(`Outstanding`);
+
+} else {
+    console.log(`No válido`);
     
 }
+
+console.log(promedio);
