@@ -22,7 +22,7 @@ rl.question('Introduce tu edad: ', (age) => {
     if (age > 18 && age < 120) {
         console.log('Aún estás joven jefe');
     } else {
-        console.log('Viejo choto');
+        console.log('Viejo');
     }
 
     // Cerrar la interfaz
