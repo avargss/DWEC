@@ -7,4 +7,4 @@ function separar(params) {
     return `${primero} ${segundo}`;
 }
 
-console.log(separar("Alex Vargas"));
+console.log(separar("Alejandro Vargas Garrán"));
