@@ -4,7 +4,6 @@ function datosJSON() {
         .then(Response => Response.json()) // Convierte la respuesta generada en un json
         .then(data => data.libros) // Extrae la propiedad libros
         .catch(error => console.error(`Error al cargar el archivo json`, error));
-
 }
 
 /* const datosJSON = [
