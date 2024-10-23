@@ -7,6 +7,54 @@ function datosJSON() {
 
 }
 
+/* const datosJSON = [
+    {
+        "title": "Keeper of the Celestial Flame of Abernethy",
+        "genre": "Fantasy",
+        "author": "Gloryhammer",
+        "pages": 72,
+        "published": "2016",
+        "read": true,
+        "website": ""
+    },
+    {
+        "title": "Holy Flamming Hammer of Unholy Cosmic Frost",
+        "genre": "Adventure",
+        "author": "Gloryhammer",
+        "pages": 350,
+        "published": "2005",
+        "read": false,
+        "website": ""
+    },
+    {
+        "title": "Hootsforce",
+        "genre": "Thriller",
+        "author": "Angus McFife",
+        "pages": 120,
+        "published": "2024",
+        "read": true,
+        "website": ""
+    },
+    {
+        "title": "Into the Terrorvortex of Kor-Virliath",
+        "genre": "Fantasy",
+        "author": "Gloryhammer",
+        "pages": 5000,
+        "published": "2022",
+        "read": true,
+        "website": ""
+    },
+    {
+        "title": "Legendary Enchanted Jetpack",
+        "genre": "Thriller",
+        "author": "Angus McFife",
+        "pages": 780,
+        "published": "2003",
+        "read": false,
+        "website": ""
+    }
+] */
+
 // Mostrar los géneros de los libros
 function mostrarGeneros(libros) {
     const generos = [...new Set(libros.map(libro => libro.genre))]; // Filtra géneros para que no se repitan al imprimirlos
@@ -122,22 +170,31 @@ function leidosPorFechas(libros) {
 
 // Eventos
 
+/* De esta forma hago el ejercicio llamando a la función que accede al JSON mediante un fetch.
+ *  Si lo que quiero es acceder al propio JSON que tengo dentro del archivo js, tengo que llamar directamente al método y pasar el JSON por parámetro. 
+ */
+
 document.getElementById("generos").addEventListener("click", () => {
     datosJSON().then(libros => mostrarGeneros(libros))
+    // mostrarGeneros(datosJSON)
 });
 
 document.getElementById("masDe300Paginas").addEventListener("click", () => {
     datosJSON().then(libros => masDe300(libros))
+    // masDe300(datosJSON);
 });
 
 document.getElementById("masDe2Anios").addEventListener("click", () => {
     datosJSON().then(libros => masDe2Anios(libros))
+    // masDe2Anios(datosJSON)
 });
 
 document.getElementById("autoresLibros").addEventListener("click", () => {
     datosJSON().then(libros => autoresLibros(libros))
+    // autoresLibros(datosJSON)
 });
 
 document.getElementById("leidosPorFechas").addEventListener("click", () => {
     datosJSON().then(libros => leidosPorFechas(libros))
+    // leidosPorFechas(datosJSON)
 });
