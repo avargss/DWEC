@@ -1,36 +1,12 @@
-console.log(`Busca en table.html la tabla con id "age-table":`);
+console.log(document.querySelector("#age-table"));
 
-function ej1() {
-    let tabla = document.getElementById("age-table");
-    return tabla;
-}
+console.log(document.querySelector("#age-list").childNodes);
 
-console.log(ej1());
+console.log(document.querySelector("#age-table td").innerHTML); // Si pongo solo el td también me sirve, ya que me imprime el primero.
 
-console.log(`-------------------------------`);
+let form = document.getElementsByName("search")[0]; // Hay varios name="search". Para imprimir el del formulario se indica cual es el que queremos, si el primero o alguno de los demás con números.
+console.log(form);
 
-console.log(`Todos los label de la tabla (deben haber 3)`);
+console.log(form.firstElementChild.firstElementChild);
 
-function ej2() {
-    let labels = document.getElementsByTagName("label");
-    return labels;
-}
-
-console.log(ej2());
-
-
-console.log(`El primer elemento td con la palabra "Age"`);
-
-function ej3() {
-    let td = document.getElementById("age");
-    return td;
-}
-
-console.log(ej3());
-
-
-/* El formulario con nombre "search" */
-
-/* El primer input del formulario */
-
-/* El último input del formulario */
+console.log(form.lastElementChild);
