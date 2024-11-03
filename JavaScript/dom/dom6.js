@@ -15,9 +15,16 @@ function createTable() {
             let td = document.createElement("td");
             td.style.width = `${width1}px`;
             td.style.height = `${height1}px`;
+
+            // Esto es el ejercicio 7
+            if (j % 2 == 0) {
+                td.style.backgroundColor = "lightblue";
+            }
+
             tr.appendChild(td);
         }
     }
+
     return tab;
 }
 
