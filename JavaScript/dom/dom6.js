@@ -18,7 +18,9 @@ function createTable() {
 
             // Esto es el ejercicio 7
             if (j % 2 == 0) {
-                td.style.backgroundColor = "lightblue";
+                td.style.backgroundColor = "red";
+            } else {
+                td.style.backgroundColor = "blue";
             }
 
             tr.appendChild(td);
