@@ -14,7 +14,7 @@ function validacion() {
         event.preventDefault();
         
         if (form.checkValidity()) {
-            mostrarValidados(inputs, textarea);
+            mostrarValidados();
         }
 
         form.classList.add('was-validated');
@@ -24,7 +24,7 @@ function validacion() {
 
 validacion();
 
-function mostrarValidados(inputs, textarea) {
+function mostrarValidados() {
 
     const prueba = Array.from(inputs);
 
