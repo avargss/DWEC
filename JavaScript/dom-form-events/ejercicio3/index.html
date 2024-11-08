@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Matrícula</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: rgb(67, 86, 121);">
+    <div class="container my-5">
+        <h1 class="text-primary border-bottom pb-2">Datos de matrícula</h1>
+
+        <form>
+            <fieldset class="mb-5">
+                <!-- Provincia, Municipio, Localidad -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="comunidad" class="form-label">Comunidad</label>
+                        <select class="form-select" name="comunidad" id="comunidad">
+                            <option value="">Seleccione una Comunidad Autónoma</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="provincia" class="form-label">Provincia</label>
+                        <select class="form-select" name="provincia " id="provincia">
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="localidad" class="form-label">Localidad</label>
+                        <select class="form-select" name="localidad" id="localidad">
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <h1 class="text-primary border-bottom pb-2">Personas autorizadas para recoger a su hijo durante el curso
+                2020/2021</h1>
+
+            <fieldset class="border rounded border-1 mt-5">
+                <div class="row p-3">
+                    <h3 class="col-11"><span value="1" class="contador">1</span>ª Persona autorizada:</h3>
+                    <div class="btn-group col-1 ">
+                        <button type="button" class="btn btn-success">+</button>
+                        <button type="button" class="btn btn-danger">-</button>
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col">
+                        <label for="">Nombre:</label>
+                        <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="nombre" required>
+                    </div>
+
+                    <div class="col">
+                        <label for="apellido1">Primer apellido:</label>
+                        <input class="form-control" type="text" placeholder="Primer apellido" name="apellido1"
+                            id="apellido1" required>
+                    </div>
+
+                    <div class="col">
+                        <label for="apellido2">Segundo apellido:</label>
+                        <input class="form-control" type="text" placeholder="Segundo apellido" name="apellido2"
+                            id="apellido2">
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col">
+                        <label for="documentacion">Tipo de documentacion:</label>
+                        <select class="form-select" name="documentacion" id="documentacion">
+                            <option value="defecto">Tipo de documentación</option>
+                            <option value="nie">NIE</option>
+                            <option value="nif">NIF</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label for="dni">Nif/Nie/Pasaporte:</label>
+                        <input class="form-control" type="text" placeholder="Nif/Nie/Pasaporte" name="dni" id="dni">
+                    </div>
+
+                    <div class="col">
+                        <label for="telefono">Télefono:</label>
+                        <input class="form-control" type="number" placeholder="Télefono" name="telefono" id="telefono">
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col">
+                        <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+
+        </form>
+    </div>
+
+    <!-- El json debe estar el primero para que pille los datos bien-->
+    <script src="provincias.js"></script>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    
+</body>
+
+</html>
