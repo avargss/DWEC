@@ -56,6 +56,7 @@ const seleccionarLocalidad = (event) => {
     provincia = comunidad.provinces.find(p => p.code == event.target.value);
 
     if (event.target.value) {
+        // Lo mismo que arriba, pero el for of usa los datos de provincia en vez de comunidad.
         for (localidad of provincia.towns) {
             let opcion = document.createElement("option");
             opcion.textContent = localidad.label; // En este caso me da Almería, Málaga...
