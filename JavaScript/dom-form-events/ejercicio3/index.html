@@ -12,34 +12,35 @@
     <div class="container my-5">
         <h1 class="text-primary border-bottom pb-2">Datos de matrícula</h1>
 
-        <form>
+        <form class="needs-validation"> <!-- Provincia, Municipio, Localidad -->
             <fieldset class="mb-5">
-                <!-- Provincia, Municipio, Localidad -->
+
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="comunidad" class="form-label">Comunidad</label>
-                        <select class="form-select" name="comunidad" id="comunidad">
+                        <select class="form-select" name="comunidad" id="comunidad" required>
                             <option value="">Seleccione una Comunidad Autónoma</option>
                         </select>
                     </div>
 
                     <div class="col-md-4">
                         <label for="provincia" class="form-label">Provincia</label>
-                        <select class="form-select" name="provincia " id="provincia">
+                        <select class="form-select" name="provincia " id="provincia" required>
                         </select>
                     </div>
 
                     <div class="col-md-4">
                         <label for="localidad" class="form-label">Localidad</label>
-                        <select class="form-select" name="localidad" id="localidad">
+                        <select class="form-select" name="localidad" id="localidad" required>
                         </select>
                     </div>
                 </div>
             </fieldset>
+        </form>
 
+        <form class="needs-validation"> <!-- Formulario para nueva persona -->
             <h1 class="text-primary border-bottom pb-2">Personas autorizadas para recoger a su hijo durante el curso
                 2020/2021</h1>
-
             <fieldset class="border rounded border-1 mt-5">
                 <div class="row p-3">
                     <h3 class="col-11"><span value="1" class="contador">1</span>ª Persona autorizada:</h3>
@@ -64,15 +65,15 @@
                     <div class="col">
                         <label for="apellido2">Segundo apellido:</label>
                         <input class="form-control" type="text" placeholder="Segundo apellido" name="apellido2"
-                            id="apellido2">
+                            id="apellido2" required>
                     </div>
                 </div>
 
                 <div class="row p-2">
                     <div class="col">
                         <label for="documentacion">Tipo de documentacion:</label>
-                        <select class="form-select" name="documentacion" id="documentacion">
-                            <option value="defecto">Tipo de documentación</option>
+                        <select class="form-select" name="documentacion" id="documentacion" required>
+                            <option value="">Tipo de documentación</option>
                             <option value="nie">NIE</option>
                             <option value="nif">NIF</option>
                             <option value="pasaporte">Pasaporte</option>
@@ -81,12 +82,15 @@
 
                     <div class="col">
                         <label for="dni">Nif/Nie/Pasaporte:</label>
-                        <input class="form-control" type="text" placeholder="Nif/Nie/Pasaporte" name="dni" id="dni">
+                        <input class="form-control" type="text" placeholder="Nif/Nie/Pasaporte" name="dni" id="dni" required>
+                        <div class="invalid-feedback">
+                            Introduce un dni con el formato 1111111X.
+                        </div>
                     </div>
 
                     <div class="col">
                         <label for="telefono">Télefono:</label>
-                        <input class="form-control" type="number" placeholder="Télefono" name="telefono" id="telefono">
+                        <input class="form-control" type="number" placeholder="Télefono" name="telefono" id="telefono" required>
                     </div>
                 </div>
 
@@ -99,7 +103,6 @@
 
             </fieldset>
 
-
         </form>
     </div>
 
@@ -107,7 +110,7 @@
     <script src="provincias.js"></script>
     <script src="script.js"></script>
     <script src="script2.js"></script>
-    
+
 </body>
 
 </html>
