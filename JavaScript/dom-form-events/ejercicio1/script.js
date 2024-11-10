@@ -8,8 +8,9 @@ function validacion() {
     // Creo otra constante que es el formulario entero o todos los que tengan esa clase.
     const form = document.querySelector('.needs-validation');
 
-    /* Cuando el botón se pulsa se activa el evento que comprueba si el form se valida. 
-    Si no, previene el evento. Si lo valida, se le añade la nueva clase y aparece el mensajito de validacion */
+    /* Cuando el botón se pulsa se previene el envío del form para que se llame a la siguiente función.
+    * Después se comprueba la validación del form. Si está todo validado, se muestran los datos de los campos
+    */
 
     button.addEventListener('click', event => {
         event.preventDefault(); // Previene el envío del form para que se muestren los datos
@@ -36,7 +37,7 @@ function mostrarValidados() {
     // Creo un div donde voy a mostrar los datos de los campos
     const div = document.createElement("div");
 
-    /* forEach con lambda donde element es el grupo de inputs.
+    /* forEach con lambda donde element es cada input.
     Se crea un p y se le indica que su contenido es el valor de element.
     Después se añade el p al div para que se muestre. */
     inputGroup.forEach(element => {
@@ -50,6 +51,8 @@ function mostrarValidados() {
     let p2 = document.createElement("p");
     p2.innerText = textarea[0].value;
     div.appendChild(p2);
+
+    // Por último se añade el div con ambos p añadidos al body
 
     document.body.appendChild(div);
 }
