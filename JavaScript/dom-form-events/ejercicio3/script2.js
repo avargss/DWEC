@@ -13,25 +13,43 @@ function validacion() {
 
     const forms = document.querySelectorAll('.needs-validation');
 
+    // Validación al salir del campo DNI
+    dni.addEventListener('blur', () => {
+        if (regExpDni.test(dni.value)) {
+            dni.classList.remove("is-invalid");
+            dni.classList.add("is-valid");
+        } else {
+            dni.classList.remove("is-valid");
+            dni.classList.add("is-invalid");
+        }
+    });
 
-    forms.forEach(form => {
-        submitButton.addEventListener('click', event => {
+    // Validación al salir del campo Teléfono
+    telefono.addEventListener('blur', () => {
+        if (regExpTelf.test(telefono.value)) {
+            telefono.classList.remove("is-invalid");
+            telefono.classList.add("is-valid");
+        } else {
+            telefono.classList.remove("is-valid");
+            telefono.classList.add("is-invalid");
+        }
+    });
 
-            event.preventDefault(); // Evitar el envío del formulario.
-            
-            if (!regExpDni.test(dni)) {
-                dni.classList.add("is-invalid");
+    // Validación en el botón de envío
+    submitButton.addEventListener('click', event => {
+        event.preventDefault(); // Evitar el envío del formulario.
+
+        forms.forEach(form => {
+            // Valida todos los campos usando form.checkValidity() 
+            if (form.checkValidity() && dni.classList.contains("is-valid") && telefono.classList.contains("is-valid")) {
+                console.log("Formulario válido");
+                form.classList.add("was-validated");
+            } else {
+                console.log("Formulario no válido");
+                form.classList.add("was-validated");
             }
-
-            if (form.checkValidity()) {
-                // Devuelve true si todos los campos son correctos
-                console.log("works");
-            }
-
-            form.classList.add("was-validated");
-
         });
-    })
+    });
 
 }
 

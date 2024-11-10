@@ -38,7 +38,7 @@
             </fieldset>
         </form>
 
-        <form class="needs-validation"> <!-- Formulario para nueva persona -->
+        <form class="needs-validation" novalidate> <!-- Formulario para nueva persona -->
             <h1 class="text-primary border-bottom pb-2">Personas autorizadas para recoger a su hijo durante el curso
                 2020/2021</h1>
             <fieldset class="border rounded border-1 mt-5">
@@ -84,13 +84,16 @@
                         <label for="dni">Nif/Nie/Pasaporte:</label>
                         <input class="form-control" type="text" placeholder="Nif/Nie/Pasaporte" name="dni" id="dni" required>
                         <div class="invalid-feedback">
-                            Introduce un dni con el formato 1111111X.
+                            Introduce un dni con el formato 12345678X.
                         </div>
                     </div>
 
                     <div class="col">
                         <label for="telefono">Télefono:</label>
                         <input class="form-control" type="number" placeholder="Télefono" name="telefono" id="telefono" required>
+                        <div class="invalid-feedback">
+                            Longitud mínima de 9 dígitos.
+                        </div>
                     </div>
                 </div>
 
