@@ -32,7 +32,7 @@ const seleccionarProvincia = (event) => {
     El evento es seleccionar una comunidad en el selectMap, por lo tanto se obtiene
     el codigo y en base a eso se hace el resto de la funcion */
     comunidad = selectMap.find(c => c.code == event.target.value);
-    
+
     // Estos son los datos que se le pasan por parámetro a resetSelect para que setee los valores en "";
     resetSelect("#provincia", "provincia");
     resetSelect("#localidad", "localidad");
