@@ -17,7 +17,7 @@ function validacionLugares() {
         event.preventDefault();
 
         if (formLugar.checkValidity()) {
-            alert("pinga");
+            alert("Campos de localización válidos");
         } 
 
         formLugar.classList.add("was-validated");
@@ -62,6 +62,7 @@ function validacionPersonas() {
         if (form.checkValidity() && dni.classList.contains("is-valid") && telefono.classList.contains("is-valid")) {
             console.log("Formulario válido");
             form.classList.add("was-validated");
+
             let nombre = document.getElementById("nombre");
             let apellido1 = document.getElementById("apellido1");
             let apellido2 = document.getElementById("apellido2");
@@ -70,11 +71,7 @@ function validacionPersonas() {
                 alert("Máximo de 5 personas");
             } else {
                 controlDePersonas(nombre.value, apellido1.value, apellido2.value, dni.value, telefono.value);
-                nombre.value = "";
-                apellido1.value = "";
-                apellido2.value = "";
-                dni.value = "";
-                telefono.value = "";
+                form.reset();
             }
 
         } else {
@@ -99,7 +96,7 @@ function controlDePersonas(nombre, apellido1, apellido2, dni, telefono) {
 
     contador++;
 
-    let borrar = document.createElement("button");
+    const borrar = document.createElement("button");
     borrar.classList.add("btn", "btn-danger");
     borrar.textContent = "Eliminar persona";
 
