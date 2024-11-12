@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lectivo {
+            background-color: rgb(159, 219, 159);
+        }
+
+        .festivo {
+            background-color: rgb(211, 133, 133);
+        }
+
+        .finde {
+            background-color: burlywood;
+        }
+
+        .out {
+            background-color: rgb(212, 212, 212);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Quedan <span class="restantes"></span> para que acabe el curso</p>
+    <section class="calendario">
+
+    </section>
+</body>
+<script>
+    // 1nov, 6,9,23,24,25,26,27,30,31 dic,1,2,3,6,7 ene,24,25,26,27,28 feb,14abril fin (festivos)
+    const mes = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'augost', 'september', 'october', 'november', 'december'];
+    let festivos = [
+        new Date("2024-11-1"),
+        new Date("2024-12-6"),
+        new Date("2024-12-9"),
+        new Date("2024-12-23"),
+        new Date("2024-12-24"),
+        new Date("2024-12-25"),
+        new Date("2024-12-26"),
+        new Date("2024-12-27"),
+        new Date("2024-12-30"),
+        new Date("2024-12-31"),
+        new Date("2025-1-1"),
+        new Date("2025-1-2"),
+        new Date("2025-1-3"),
+        new Date("2025-1-6"),
+        new Date("2025-1-7"),
+        new Date("2025-2-24"),
+        new Date("2025-2-25"),
+        new Date("2025-2-26"),
+        new Date("2025-2-27"),
+        new Date("2025-2-28")
+    ]; //se podria haber hecho con un map y me ahorraba un ratillo (la inspiración llegó tarde)
+    festivosCadena = festivos.map(f => f.toDateString());
+    console.log(festivosCadena);
+    //arranco en domingo para que luego el td sea mas facil porque el getDay() empieza en domingo.
+    let diaSemana = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+    let hoy = new Date();
+    let fin = new Date("2025-4-11");
+    let cont = 0;
+    let contaCelda = 0;
+
+    let tablaLectivos = () => {
+        let calendario = document.querySelector(".calendario");
+        let test = new Date(hoy.getFullYear(), hoy.getMonth(), 1); //para empezar cada mes en dia 1
+        while (test <= fin) {
+
+            //creamos un elemento, le asociamos el contenido, y appendChild para que se grabe en calendario.
+            let cabeceraMes = document.createElement('h2');
+            cabeceraMes.textContent = mes[test.getMonth()]; //en W3schools usan innerText en vez de textContent:
+            // The innerHTML property returns:
+            // The text content of the element, including all spacing and inner HTML tags.
+            // The innerText property returns:
+            // Just the text content of the element and all its children, without CSS hidden text spacing and tags, except <script> and <style> elements.
+            // The textContent property returns:
+            // The text content of the element and all descendaces, with spacing and CSS hidden text, but without tags..
+            calendario.appendChild(cabeceraMes);
+
+            //Cada mes, una tabla:
+            //declaro la tabla y la cabecera;
+            let tabla = document.createElement('table');
+            let cabeza = document.createElement('thead');
+            let trCabeza = document.createElement('tr');
+
+
+            //al tr de cabeza le metemos cada dia de la semana.
+            for (let i = 0; i < 7; i++) {
+                let th = document.createElement('th');
+                th.textContent = diaSemana[i + 1];
+                if (i == 6) {
+                    th.textContent = diaSemana[0];
+                }
+                trCabeza.appendChild(th);
+            }
+            cabeza.appendChild(trCabeza); //como una muñeca rusa, vamos creando y guardando
+            tabla.appendChild(cabeza); // Agregamos la cabecera a la tabla
+
+            let cuerpo = document.createElement('tbody');
+            let tr = document.createElement('tr');
+            contaCelda = 0; // Reiniciamos el contador de celdas al iniciar una nueva semana(mes aqui)
+
+            //calculamos los huecos del principio de mes sin nada
+            let diaSem1 = test.getDay();
+            let huecos = (diaSem1) ? diaSem1 - 1 : 6; //si es domingo va al final,
+            // si no como el lunes es 1 los que sobren se meten de huecos vacios
+            for (let i = 0; i < huecos; i++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+                contaCelda++;
+            }
+            //repasar apuntes HOLA MUNDO de ultimate javascript, suma de dias y dias negativos dia 0.
+            let numDiasMes = new Date(test.getFullYear(), test.getMonth() + 1, 0).getDate();
+
+            for (let dia = 1; dia <= numDiasMes; dia++) {
+                let fechaDia = new Date(test.getFullYear(), test.getMonth(), dia);
+                //contamos las celdas y al llegar a 7 nuevo tr para cambiar de semana.
+                if (contaCelda == 7) {
+                    cuerpo.appendChild(tr);
+                    tr = document.createElement('tr');
+                    contaCelda = 0; // Reiniciamos el contador al iniciar una nueva fila
+                }
+                let td = document.createElement('td');
+                td.textContent = dia + '\n' + diaSemana[fechaDia.getDay()];
+
+                //marcamos segun el dia (tenia que haber hecho el if al reves, pero bueno)
+                if (fechaDia >= hoy && fechaDia <= fin) {
+                    //lo del for he intentado hacerlo con metodos del array pero no lo saco, al final no
+                    //quedo de otra que un for y que recorra cada vez el array de los festivos, pero no me gusta. 
+                    let diaCadena = fechaDia.toDateString();
+                    let esFestivo = false;
+                    for (festivo of festivosCadena) {
+                        if (festivo === diaCadena) {
+                            esFestivo = true;
+                            console.log(diaCadena);
+                            console.log(esFestivo);
+                        }
+                    }
+                    if (esFestivo) {
+                        td.classList.add('festivo');
+                    } else if (fechaDia.getDay() == 0 || fechaDia.getDay() == 6) {
+                        td.classList.add('finde');
+                    } else {
+                        td.classList.add('lectivo');
+                        cont++;
+                    }
+                } else {
+                    td.classList.add('out');
+                }
+                tr.appendChild(td);
+                contaCelda++;
+            }
+            //rellenar los huecos vacios para que no se descuadre al final
+            while (contaCelda < 7 && contaCelda) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+                contaCelda++;
+            }
+            //metemos fila y la tabla en el contenedor con los meses antes de empezar el siguiente mes
+            cuerpo.appendChild(tr);
+            tabla.appendChild(cuerpo);
+            calendario.appendChild(tabla); // Añadimos la tabla al calendario
+            test.setMonth(test.getMonth() + 1); //mes siguiente
+            // test.setDate(1); // iniciamos mes en 1 pero ni falta porque ya lo hacemos en el bucle
+        }
+        document.querySelector('.restantes').textContent = cont;
+    }
+    tablaLectivos();
+</script>
+
+</html>

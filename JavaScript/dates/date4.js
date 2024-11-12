@@ -1,6 +1,6 @@
 function dias() {
-    const fechaHoy = new Date("10/29/2024");
-    const sept15 = new Date("09/10/2024");
+    const fechaHoy = new Date("12/11/2024");
+    const sept15 = new Date("15/09/2024");
 
     let milisDia = 24 * 60 * 60 * 1000;
     let milisPas = Math.abs(fechaHoy.getTime() - sept15.getTime());
