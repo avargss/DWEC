@@ -1,12 +1,12 @@
 // Esta función sirve para acceder al archivo JSON y poder cargar sus datos.
-function datosJSON() {
+/* function datosJSON() {
     return fetch("libros.json")
         .then(Response => Response.json()) // Convierte la respuesta generada en un json
         .then(data => data.libros) // Extrae la propiedad libros
         .catch(error => console.error(`Error al cargar el archivo json`, error));
-} 
+}  */
 
-/* const datosJSON = [
+const datosJSON = [
     {
         "title": "Keeper of the Celestial Flame of Abernethy",
         "genre": "Fantasy",
@@ -52,7 +52,7 @@ function datosJSON() {
         "read": false,
         "website": ""
     }
-] */
+] 
 
 // Mostrar los géneros de los libros
 function mostrarGeneros(libros) {
@@ -177,26 +177,26 @@ function leidosPorFechas(libros) {
 métodos convencionales y prefiere que nos compliquemos la vida */
 
 document.getElementById("generos").addEventListener("click", () => {
-    datosJSON().then(libros => mostrarGeneros(libros))
-    /* mostrarGeneros(datosJSON) */
+    /* datosJSON().then(libros => mostrarGeneros(libros)) */
+    mostrarGeneros(datosJSON)
 });
 
 document.getElementById("masDe300Paginas").addEventListener("click", () => {
-    datosJSON().then(libros => masDe300(libros))
-    /* masDe300(datosJSON); */
+    /* datosJSON().then(libros => masDe300(libros)) */
+    masDe300(datosJSON);
 });
 
 document.getElementById("masDe2Anios").addEventListener("click", () => {
-    datosJSON().then(libros => masDe2Anios(libros))
-    /* masDe2Anios(datosJSON) */
+    /* datosJSON().then(libros => masDe2Anios(libros)) */
+    masDe2Anios(datosJSON)
 });
 
 document.getElementById("autoresLibros").addEventListener("click", () => {
-    datosJSON().then(libros => autoresLibros(libros))
-    /* autoresLibros(datosJSON) */
+    /* datosJSON().then(libros => autoresLibros(libros)) */
+    autoresLibros(datosJSON)
 });
 
 document.getElementById("leidosPorFechas").addEventListener("click", () => {
-    datosJSON().then(libros => leidosPorFechas(libros))
-    /* leidosPorFechas(datosJSON) */
+    /* datosJSON().then(libros => leidosPorFechas(libros)) */
+    leidosPorFechas(datosJSON)
 });
