@@ -160,8 +160,6 @@ const companyNames = (event) => {
     })
 }
 
-// Eventos
-
 document.querySelector("#allCountries").addEventListener("click", showCountriesPerContinent);
 document.querySelector("#numberOfCompanies").addEventListener("click", howManyCompanies);
 document.querySelector("#companyNames").addEventListener("click", companyNames);
