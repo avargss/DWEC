@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Películas</title>
+</head>
+
+<style>
+    .highlight-card {
+        background-color: lightblue;
+    }
+
+    .reset-button {
+        margin: 10px 0;
+    }
+</style>
+
+<body>
+
+    <p>ALEJANDRO VARGAS GARRÁN</p>
+
+    <form>
+
+        <fieldset>
+            <label for="text">Text: </label>
+            <input type="text" name="name" id="name">
+
+            <div>
+                <input type="checkbox" name="titleCheck" id="titleCheck">Title
+                <input type="checkbox" name="directorCheck" id="directorCheck">Director
+                <input type="checkbox" name="actorCheck" id="actorCheck">Actor
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <label for="country">Country: </label>
+            <select name="country" id="selectCountry">
+                <option value="All countries" selected disabled>All countries</option>
+
+            </select>
+        </fieldset>
+
+        <fieldset id="inputGenders">
+            <label for="allGenders">Gender: </label>
+            <input type="checkbox" name="allGenders" id="allGenders">All genders
+        </fieldset>
+
+        <fieldset><label for="year">Year:</label>
+            from
+            <select name="year1" id="year1">
+                <option value="- - - -" selected disabled>- - - -</option>
+            </select>
+            to
+            <select name="year2" id="year2">
+                <option value="- - - -" selected disabled>- - - -</option>
+            </select>
+        </fieldset>
+
+
+        <button type="submit">Find</button>
+
+    </form>
+
+    <div id="infoPelis">
+
+
+
+    </div>
+
+
+    <script src="filtrospelis.js"></script>
+    <script src="pelisList.js"></script>
+    <script src="scriptAVG.js"></script>
+</body>
+
+</html>
