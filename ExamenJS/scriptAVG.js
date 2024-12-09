@@ -156,7 +156,7 @@ function displayMovies() {
                     <h5 class="card-title">${movie.Title}</h5>
                     <div class="card-body">
                     <img src="${movie.Images[0]}" class="card-img-top" alt="${movie.Title}" style="width: 100%;">
-                        <button class="btn btn-primary">Details</button>
+                        <button class="details-button btn btn-primary">Details</button>
                         <p>Los datos de la pelicula se muestran al final de la web.</p>
                         <p class="card-text">Genres: ${movie.Genre}</p>
                     </div>
@@ -190,21 +190,66 @@ function showDetails(button, peli) {
     resetButton.textContent = "Resetear color";
     resetButton.classList.add("btn", "btn-secondary", "reset-button");
 
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Cerrar";
+    closeButton.classList.add("btn", "btn-danger", "close-button");
+
     const cardBody = tarjetaPelicula.querySelector(".card-body");
     cardBody.prepend(resetButton);
+    cardBody.prepend(closeButton);
+
+    // Cerrar la información y habilitar el botón Details
+    closeButton.addEventListener("click", function () {
+        closeDetails(tarjetaPelicula, button);
+    });
 
     resetButton.addEventListener("click", function () {
         resetCard(tarjetaPelicula, resetButton);
     });
 
+    
     const peliDetalles = `
-        <pre>${JSON.stringify(peli, null, 2)}</pre>
+        <pre id="peliDetalles">${JSON.stringify(peli, null, 2)}</pre>
     `;
 
     const detallesDiv = document.createElement("div");
     detallesDiv.innerHTML = peliDetalles;
 
     tarjetaPelicula.appendChild(detallesDiv);
+
+    // Aquí va la función para actualizar el IMDB Rating
+    const imdbRatingDiv = document.createElement("div");
+    imdbRatingDiv.classList.add("imdb-rating");
+
+    const imdbRatingTitle = document.createElement("h5");
+    imdbRatingTitle.textContent = "IMDB Rating";
+    imdbRatingDiv.appendChild(imdbRatingTitle);
+
+    const imdbInput = document.createElement("input");
+    imdbInput.type = "number";
+    imdbInput.min = 0;
+    imdbInput.max = 10;
+    imdbInput.step = "0.1"; // Esto sirve para que admita un solo decimal
+    imdbInput.value = peli.imdbRating || 0;
+    imdbInput.classList.add("form-control");
+    imdbRatingDiv.appendChild(imdbInput);
+
+    const updateButton = document.createElement("button");
+    updateButton.textContent = "Update";
+    updateButton.classList.add("btn", "btn-primary");
+    imdbRatingDiv.appendChild(updateButton);
+
+    cardBody.appendChild(imdbRatingDiv);
+
+    // Este evento sirve para que me actualice el rating en la web pero no en el JSON
+    updateButton.addEventListener("click", function () {
+        const newRating = parseFloat(imdbInput.value);
+
+        peli.imdbRating = newRating;
+
+        const peliDetallesElemento = document.getElementById("peliDetalles");
+        peliDetallesElemento.innerHTML = JSON.stringify(peli, null, 2);
+    });
 }
 
 function resetCard(tarjetaPelicula, resetButton) {
@@ -213,5 +258,20 @@ function resetCard(tarjetaPelicula, resetButton) {
     resetButton.remove();
 }
 
+function closeDetails(tarjetaPelicula) {
+    const detallesDiv = tarjetaPelicula.querySelector("#peliDetalles");
+    const imdbRatingDiv = tarjetaPelicula.querySelector(".imdb-rating");
 
-document.querySelector("#infoPelis").addEventListener("click", showMovies);
+    if (detallesDiv) detallesDiv.remove();
+    if (imdbRatingDiv) imdbRatingDiv.remove();
+
+    const detailsButton = tarjetaPelicula.querySelector(".details-button");
+    if (detailsButton) detailsButton.disabled = false;
+
+    const resetButton = tarjetaPelicula.querySelector(".reset-button");
+    const closeButton = tarjetaPelicula.querySelector(".close-button");
+    if (resetButton) resetButton.remove();
+    if (closeButton) closeButton.remove();
+
+    tarjetaPelicula.classList.remove("highlight-card");
+}
