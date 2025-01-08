@@ -1,0 +1,49 @@
+{
+    "libros": [
+        {
+            "title": "Keeper of the Celestial Flame of Abernethy",
+            "genre": "Fantasy",
+            "author": "Gloryhammer",
+            "pages": 72,
+            "published": "2016",
+            "read": true,
+            "website": ""
+        },
+        {
+            "title": "Holy Flamming Hammer of Unholy Cosmic Frost",
+            "genre": "Adventure",
+            "author": "Gloryhammer",
+            "pages": 350,
+            "published": "2005",
+            "read": false,
+            "website": ""
+        },
+        {
+            "title": "Hootsforce",
+            "genre": "Thriller",
+            "author": "Angus McFife",
+            "pages": 120,
+            "published": "2024",
+            "read": true,
+            "website": ""
+        },
+        {
+            "title": "Into the Terrorvortex of Kor-Virliath",
+            "genre": "Fantasy",
+            "author": "Gloryhammer",
+            "pages": 5000,
+            "published": "2022",
+            "read": true,
+            "website": ""
+        },
+        {
+            "title": "Legendary Enchanted Jetpack",
+            "genre": "Thriller",
+            "author": "Angus McFife",
+            "pages": 780,
+            "published": "2003",
+            "read": false,
+            "website": ""
+        }
+    ]
+}
