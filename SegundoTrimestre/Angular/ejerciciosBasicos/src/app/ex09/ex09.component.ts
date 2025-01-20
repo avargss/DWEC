@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Employee} from "../employee";
-import {EMPLOYEE_LIST} from "../employee-list";
+/* import {Employee} from "../employee";
+import {EMPLOYEE_LIST} from "../employee-list"; */
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -12,11 +12,11 @@ import {NgForOf} from "@angular/common";
   templateUrl: './ex09.component.html'
 })
 export class Ex09Component {
-  employees: Employee[] = [];
+  /* employees: Employee[] = []; */
 
   constructor() { }
 
   ngOnInit(): void {
-    this.employees = EMPLOYEE_LIST;
+    /* this.employees = EMPLOYEE_LIST; */
   }
 }
