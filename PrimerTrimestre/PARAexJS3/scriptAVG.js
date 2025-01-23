@@ -41,26 +41,28 @@ function showProducts() {
             const row = document.createElement("tr");
 
             const cantidadTd = document.createElement("td");
+            const cantidadProducto = document.createElement("span");
+            cantidadProducto.textContent = cantidad.value;
+
             const aumentarBoton = document.createElement("button");
             aumentarBoton.textContent = "+";
             aumentarBoton.addEventListener("click", () => {
-                if (cantidad.value < values.stock) {
+                if (cantidadProducto.textContent < values.stock) {
                     cantidad.value++;
-                    actualizarTotal(row, cantidad.value, values.precio);
+                    cantidadProducto.textContent++;
+                    actualizarTotal(row, cantidadProducto.textContent, values.precio);
                 }
             });
 
             const eliminarBoton = document.createElement("button");
             eliminarBoton.textContent = "-";
             eliminarBoton.addEventListener("click", () => {
-                if (cantidad.value > 1) {
+                if (cantidadProducto.textContent > 1) {
                     cantidad.value--;
-                    actualizarTotal(row, cantidad.value, values.precio);
+                    cantidadProducto.textContent--;
+                    actualizarTotal(row, cantidadProducto.textContent, values.precio);
                 }
             });
-
-            const cantidadProducto = document.createElement("span");
-            cantidadProducto.textContent = cantidad.value;
 
             cantidadTd.appendChild(eliminarBoton);
             cantidadTd.appendChild(cantidadProducto);
@@ -77,6 +79,7 @@ function showProducts() {
 
             const eliminarTd = document.createElement("td");
             const deleteBtn = document.createElement("button");
+            
             deleteBtn.textContent = "Eliminar";
             deleteBtn.addEventListener("click", () => {
                 row.remove();

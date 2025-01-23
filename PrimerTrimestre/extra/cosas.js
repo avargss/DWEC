@@ -19,11 +19,11 @@ const showCountries = () => {
     infoTabla.innerHTML = ""; // Para vaciar el contenido
 
     companies.forEach(c => {
-        c.countries.forEach(c2=> {
+        c.countries.forEach(c2 => {
             countries.push(c2.name);
         })
     });
-    
+
     countries.sort();
 
     countries.forEach(p => { // Aquí recorro el array para crear una fila y celda por cada país de la lista
@@ -149,7 +149,7 @@ const companyNames = (event) => {
 
         celdaPais.innerHTML = p.name;
         celdaNum.innerHTML = p.companies.length;
-        
+
         celdaNames.innerHTML = p.companies.map(m => Object.keys(m));
 
         filaPais.appendChild(celdaPais);
