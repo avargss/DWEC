@@ -10,7 +10,7 @@ function showProducts() {
         img.src = `.${values.imagen}`;
         img.width = 200;
 
-        const name = document.createElement("h5");
+        const name = document.createElement("h1");
         name.textContent = values.nombre;
 
         const price = document.createElement("p");
