@@ -5,7 +5,7 @@ const products = [
         precio: 39.99,
         categoria: "Electrónica",
         stock: 12,
-        fechaLanzamiento: new Date(2023, 8, 12), // 12 de septiembre de 2023
+        fechaLanzamiento: new Date(2025, 8, 12), // 12 de septiembre de 2025
         imagen: "/assets/img/auriculares.jpg",
     },
     {
@@ -13,8 +13,8 @@ const products = [
         nombre: "Teclado Mecánico RGB",
         precio: 89.99,
         categoria: "Electrónica",
-        stock: 8,
-        fechaLanzamiento: new Date(2023, 10, 5), // 5 de noviembre de 2023
+        stock: 1,
+        fechaLanzamiento: new Date(2024, 10, 5), // 5 de noviembre de 2024
         imagen: "/assets/img/teclado.jpg",
     },
     {
@@ -32,7 +32,7 @@ const products = [
         precio: 119.99,
         categoria: "Wearables",
         stock: 5,
-        fechaLanzamiento: new Date(2023, 9, 30), // 30 de septiembre de 2023
+        fechaLanzamiento: new Date(2018, 9, 30), // 30 de septiembre de 2018
         imagen: "/assets/img/smartwatch.jpg",
     },
     {
@@ -41,7 +41,7 @@ const products = [
         precio: 199.99,
         categoria: "Fotografía",
         stock: 3,
-        fechaLanzamiento: new Date(2023, 4, 15), // 15 de mayo de 2023
+        fechaLanzamiento: new Date(2022, 4, 15), // 15 de mayo de 2022
         imagen: "/assets/img/camara.jpg",
     },
     {
@@ -50,7 +50,7 @@ const products = [
         precio: 24.99,
         categoria: "Accesorios",
         stock: 20,
-        fechaLanzamiento: new Date(2023, 2, 10), // 10 de marzo de 2023
+        fechaLanzamiento: new Date(2021, 2, 10), // 10 de marzo de 2021
         imagen: "/assets/img/gafas.jpg",
     },
     {
@@ -58,7 +58,7 @@ const products = [
         nombre: "Altavoz Portátil",
         precio: 59.99,
         categoria: "Electrónica",
-        stock: 7,
+        stock: 5,
         fechaLanzamiento: new Date(2023, 1, 28), // 28 de febrero de 2023
         imagen: "/assets/img/altavoz.jpg",
     },
@@ -68,7 +68,7 @@ const products = [
         precio: 19.99,
         categoria: "Electrónica",
         stock: 18,
-        fechaLanzamiento: new Date(2023, 0, 5), // 5 de enero de 2023
+        fechaLanzamiento: new Date(2020, 6, 5), // 5 de enero de 2020
         imagen: "/assets/img/cargador.jpg",
     },
 ];

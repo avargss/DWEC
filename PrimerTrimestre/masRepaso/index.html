@@ -9,13 +9,13 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #383f46;
         }
 
         h1 {
             text-align: center;
             margin: 20px 0;
-            color: #343a40;
+            color: rgb(24, 160, 194);
         }
 
         .productos {
@@ -32,11 +32,47 @@
 
     <h1>ALEJANDRO VARGAS GARRÁN</h1>
 
-    <form>
-        <fieldset>
+    <form class="container bg-light p-4 rounded shadow">
 
+        <h1>Menú de filtrado</h1>
+
+        <fieldset class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" name="nombre" id="nombreProducto" class="form-control">
+        </fieldset>
+
+        <fieldset class="mb-3">
+            <label for="categoria" class="form-label">Categoría:</label>
+            <select name="categoria" id="selectCategoria" class="form-select">
+                <option value="Todas las categorias" selected disabled>Todas las categorías</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="mb-3">
+            <label for="precios" class="form-label">Rango de precios:</label>
+            <div class="d-flex gap-2">
+                <select name="precios" id="precioMinimo" class="form-select">
+                    <option value="----" selected disabled>Precio mínimo</option>
+                </select>
+
+                <select name="precios" id="precioMaximo" class="form-select">
+                    <option value="----" selected disabled>Precio máximo</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset class="mb-3">
+            <div class="form-check">
+                <input type="checkbox" id="soloStock" class="form-check-input">
+                <label for="soloStock" class="form-check-label">Mostrar solo productos en stock</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" id="todosLosProductos" class="form-check-input">
+                <label for="todosLosProductos" class="form-check-label">Todos los productos</label>
+            </div>
         </fieldset>
     </form>
+
 
     <div class="productos">
 

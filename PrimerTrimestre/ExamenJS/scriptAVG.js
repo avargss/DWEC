@@ -1,7 +1,3 @@
-// Nuria trato siempre de poner los nombres en inglés para acostumbrarme de cara a lo laboral.
-// Si tienes dudas de por qué hay algunos en español y otros en inglés es porque puede que se me haya colado alguno en castellano
-// Te lo digo más que nada para que no pienses que me he copiado, he usado constantemente mis apuntes y algo de bootstrap
-
 function showCountries() {
     const countriesSelect = document.getElementById("selectCountry");
 
@@ -207,7 +203,7 @@ function showDetails(button, peli) {
         resetCard(tarjetaPelicula, resetButton);
     });
 
-    
+
     const peliDetalles = `
         <pre id="peliDetalles">${JSON.stringify(peli, null, 2)}</pre>
     `;

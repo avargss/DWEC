@@ -37,7 +37,7 @@ function showProductos() {
         fechaLanzamientoProducto.textContent = `Lanzamiento: ${p.fechaLanzamiento.getFullYear()}`;
 
         // Stock bajo
-        if (p.stock < 5) {
+        if (p.stock <= 5) {
             precioProducto.textContent += ` - Stock: ${p.stock}`;
             precioProducto.classList.add("text-danger");
         }
@@ -146,7 +146,7 @@ function showProductos() {
 }
 
 function filtro() {
-    
+
 }
 
 function controlCarrito() {
