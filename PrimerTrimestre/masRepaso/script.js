@@ -4,6 +4,7 @@ const botonComprar = document.querySelector(".buttonComprar");
 
 window.onload = () => {
     showProductos();
+    filtro();
 }
 
 function showProductos() {
@@ -147,7 +148,59 @@ function showProductos() {
 
 function filtro() {
 
+    const inputName = document.querySelector("#nombreProducto").toLowerCase();
+    const selectCategoria = document.querySelector("#selectCategoria").value;
+    const selectPrecioMin = document.querySelector("#precioMinimo").value;
+    const selectPrecioMax = document.querySelector("#precioMaximo").value;
+    const inputSoloStock = document.querySelector("#soloStock").checked;
+    const inputTodosLosProductos = document.querySelector("#todosLosProductos").checked;
+
+    const filtrarProductos = products.filter(p => {
+
+        const matchesName = p.nombre.toLowerCase().includes(inputName.value.toLowerCase());
+        const matchesCategoria = p.categoria === selectCategoria || selectCategoria === "todas";
+        const matchesPrecioMin = p.precio >= selectPrecioMin;
+        const matchesPrecioMax = p.precio >= selectPrecioMax;
+        const matchesStock = inputSoloStock ? p.stock > 0 : true;
+        const matchesTodosLosProductos = inputTodosLosProductos ? true : p.stock > 0;
+
+        return matchesName && matchesCategoria && matchesPrecioMin && matchesPrecioMax && matchesStock && matchesTodosLosProductos;
+    });
+
+    // mostrarProductosFiltrados(filtrarProductos);
+
+    if (filtrarProductos.length > 0) {
+        divProductos.innerHTML = "";
+
+        filtrarProductos.forEach(p => {
+            divProductos.innerHTML = `
+            <div class="card shadow-sm p-3">
+                <img src="${p.imagen}" class="card-img-top" alt="Producto" style="object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">${p.nombre}</h5>
+                    <p class="card-text fw-bold">${p.precio}</p>
+                    <p class="card-text text-muted">${p.fechaLanzamiento}</p>
+                    <input type="number" min="1" max="${p.stock}" class="form-control my-2">
+                    <button class="btn btn-primary w-100">Añadir al carrito</button>
+                </div>
+            </div>
+            `;
+        });
+
+    } else {
+        const sinResultados = document.createElement("p");
+        sinResultados.textContent = "No se han encontrado productos con esos criterios de búsqueda.";
+        divProductos.innerHTML = sinResultados;
+    }
+
 }
+
+/* function mostrarProductosFiltrados() {
+
+    const divProductos = document.querySelector(".productos");
+    divProductos.innerHTML = "";
+
+} */
 
 function controlCarrito() {
 
@@ -168,5 +221,3 @@ function actualizarTotal(tr, cantidadProducto, precioProducto) {
     const totalTd = tr.children[3];
     totalTd.textContent = (cantidadProducto * precioProducto).toFixed(2) + "€";
 }
-
-// Falta añadir filtro
