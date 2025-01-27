@@ -44,20 +44,15 @@
         <fieldset class="mb-3">
             <label for="categoria" class="form-label">Categoría:</label>
             <select name="categoria" id="selectCategoria" class="form-select">
-                <option value="todas" selected disabled>Todas las categorías</option>
+
             </select>
         </fieldset>
 
         <fieldset class="mb-3">
             <label for="precios" class="form-label">Rango de precios:</label>
             <div class="d-flex gap-2">
-                <select name="precios" id="precioMinimo" class="form-select">
-                    <option value="----" selected disabled>Precio mínimo</option>
-                </select>
-
-                <select name="precios" id="precioMaximo" class="form-select">
-                    <option value="----" selected disabled>Precio máximo</option>
-                </select>
+                <input type="number" id="precioMinimo" class="form-control" placeholder="Precio Mínimo">
+                <input type="number" id="precioMaximo" class="form-control" placeholder="Precio Máximo">
             </div>
         </fieldset>
 
@@ -71,6 +66,10 @@
                 <label for="todosLosProductos" class="form-check-label">Todos los productos</label>
             </div>
         </fieldset>
+
+        <button type="button" class="btn btn-success" id="botonParaFiltrar"
+            style="display: flex; justify-self: center;">Buscar</button>
+
     </form>
 
 
@@ -89,7 +88,7 @@
             </tr>
         </thead>
         <tbody class="carrito">
-            
+
         </tbody>
     </table>
 

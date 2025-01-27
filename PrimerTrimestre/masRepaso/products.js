@@ -13,7 +13,7 @@ const products = [
         nombre: "Teclado Mecánico RGB",
         precio: 89.99,
         categoria: "Electrónica",
-        stock: 1,
+        stock: 0,
         fechaLanzamiento: new Date(2024, 10, 5), // 5 de noviembre de 2024
         imagen: "/assets/img/teclado.jpg",
     },
