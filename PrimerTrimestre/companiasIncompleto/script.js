@@ -1,7 +1,6 @@
 window.onload = () => {
     selectContinent(companies);
     showCountries();
-
 }
 
 const selectContinent = (companies) => {
