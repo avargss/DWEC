@@ -55,7 +55,7 @@ function showProductos() {
 
         const fechaLanzamientoProducto = document.createElement("p");
         fechaLanzamientoProducto.classList.add("card-text", "text-muted");
-        fechaLanzamientoProducto.textContent = `Lanzamiento: ${p.fechaLanzamiento.getFullYear()}`;
+        fechaLanzamientoProducto.textContent = `Lanzamiento: ${p.fechaLanzamiento.getFullYear()}-${p.fechaLanzamiento.getMonth()}-${p.fechaLanzamiento.getDate()}`;
 
         // Stock bajo
         if (p.stock <= 5) {
@@ -172,6 +172,7 @@ function filtro() {
     const selectPrecioMin = parseFloat(document.querySelector("#precioMinimo").value) || 0;
     const selectPrecioMax = parseFloat(document.querySelector("#precioMaximo").value) || Infinity;
     const inputSoloStock = document.querySelector("#soloStock").checked;
+    const inputTodosLosProductos = document.querySelector("#todosLosProductos").checked;
 
     // Filtrar productos según los criterios
     const productosFiltrados = products.filter(p => {
