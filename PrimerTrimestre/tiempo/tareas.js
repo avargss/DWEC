@@ -4,7 +4,7 @@ const contador = document.getElementById("contador");
 
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
-
+const pause = document.getElementById("pause");
 
 let contadores = [];
 let segundosGlobales = 0;
@@ -85,7 +85,9 @@ function stopContadores() {
 
     segundosGlobales = 0;
     contador.innerText = "00:00";
+}
 
+function pauseContadores() {
     taskAll.taskList.forEach((task, index) => {
         let celda = document.getElementById(`celda-${index}`);
         let durationElement = document.getElementById(`duration-${index}`);
@@ -101,5 +103,6 @@ function stopContadores() {
 // Agregar eventos a los botones
 start.addEventListener("click", startContadores);
 stop.addEventListener("click", stopContadores);
+pause.addEventListener("click", pauseContadores)
 
 crearTabla();

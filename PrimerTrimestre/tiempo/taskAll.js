@@ -9,8 +9,8 @@ const taskAll = {
         {
             "assignedTo": "Doe",
             "task": "Task_2",
-            "duration": 0.1,
-            "break": 0.1
+            "duration": 1,
+            "break": 1
         },
         {
             "assignedTo": "Foo",
