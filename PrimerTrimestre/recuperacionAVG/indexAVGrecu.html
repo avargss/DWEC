@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas Recu AVG</title>
+</head>
+
+<body>
+    <div>
+        <h2>Alejandro Vargas Garrán</h2>
+
+        <form id="tareaForm">
+            <div>
+                <label for="nombreTarea">Nombre</label>
+                <input type="text" id="nombreTarea" required>
+            </div>
+            <div>
+                <label for="vencimientoTarea">Fecha de vencimiento</label>
+                <input type="date" id="vencimientoTarea" required>
+            </div>
+            <div>
+                <label for="prioridad">Prioridad</label>
+                <select id="prioridad" required>
+                    <option value="baja">Baja</option>
+                    <option value="media">Media</option>
+                    <option value="alta">Alta</option>
+                </select>
+            </div>
+            <button type="button" id="updateBtn">Añadir</button>
+            <button type="button" id="editBtn" class="d-none">Guardar Cambios</button>
+            <button type="button" id="cancelBtn" class="d-none">Cancelar</button>
+            <button id="verTodasBtn">Ver todas las tareas</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Vencimiento</th>
+                    <th>Prioridad</th>
+                    <th>Completado</th>
+                    <th>Fecha Creación</th>
+                    <th>Hora Creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+
+    <script src="scriptAVGrecu.js"></script>
+</body>
+
+</html>
